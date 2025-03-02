@@ -28,6 +28,11 @@ class UserServiceProvider extends ServiceProvider
                     'id' => 3,
                     'name' => 'Izzy DJ',
                     'gender' => 'Female'
+                ],
+                [
+                    'id' => 4,
+                    'name' => 'Clirk John',
+                    'gender' => 'Male'
                 ]
             ];
             return new UserService($users);
