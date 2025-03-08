@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
+use App\Services\ProductService;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
@@ -77,3 +79,16 @@ Route::get('/token', function (Request $request){
 Route::post('/token', function (Request $request){
     return $request -> all();
 });
+
+
+Route::get('/users', [UserController::class,'index']) ->middleware ('user-middleware');
+
+Route::resource('products', ProductController::class);
+
+Route::get('/product-list', function (ProductService $productService){
+    $data ['products']= $productService->listProducts();
+    return view ('product.list', $data);
+});
+
+
+
