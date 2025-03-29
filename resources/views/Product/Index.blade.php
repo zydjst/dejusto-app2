@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<body>
-    <p>Products:</p>
-    <table>
+<x-layout>
+    <x-slot:heading> Product List </x-slot>
+    <x-table>
         <thead>
             <tr>
-                @foreach(['ID', 'Name', 'Category'] as $column)
-                    <td>{{ $column }}</td>
-                @endforeach
+                <th scope ="col"> # </th>
+                <th scope ="col"> Product </th>
+                <th scope ="col"> Category </th>
             </tr>
         </thead>
         <tbody>
             @foreach ($products as $product)
             <tr>
-                <td>{{ $product['id'] }}</td>
+                <th scope ="row">{{$product ['id'] }} </th>
                 <td>{{ $product['name'] }}</td>
                 <td>{{ $product['category'] }}</td>
             </tr>
             @endforeach
-        </body>
-    </table>
+        </tbody>
+    </x-table>
+</x-layout>
 
+
+<!-- 
     <p>Tasks:</p>
     <ul>
         @foreach ($tasks as $task)
@@ -33,4 +35,4 @@
     <p>Product Key: {{ $productKey }}</p>
 
 </body>
-</html>
+</html> -->
